@@ -4,7 +4,6 @@ import cmd
 import sys
 import json
 import os
-import shlex
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
@@ -14,37 +13,13 @@ from models.city import City
 from models.amenity import Amenity
 from models.review import Review
 
-classes = {'BaseModel': BaseModel, 'User': User, 'City': City,
-            'Place': Place, 'Amenity': Amenity, 'Review': Review,
-            'State': State}
-
 class HBNBCommand(cmd.Cmd):
     """ General Class for HBNBCommand """
-    
     prompt = '(hbnb) '
-    
-    def _key_value_parser(self, args):
-        """creates a dictionary from a list of strings"""
-        new_dict = {}
-        for arg in args:
-            if "=" in arg:
-                kvp = arg.split('=', 1)
-                key = kvp[0]
-                value = kvp[1]
-                if value[0] == value[-1] == '"':
-                    value = shlex.split(value)[0].replace('_', ' ')
-                else:
-                    try:
-                        value = int(value)
-                    except:
-                        try:
-                            value = float(value)
-                        except:
-                            continue
-                new_dict[key] = value
-        return new_dict
+    classes = {'BaseModel': BaseModel, 'User': User, 'City': City,
+               'Place': Place, 'Amenity': Amenity, 'Review': Review,
+               'State': State}
 
-    
     def do_quit(self, arg):
         """ Exit method for quit typing """
         exit()
@@ -152,6 +127,5 @@ class HBNBCommand(cmd.Cmd):
                     print('** attribute name missing **')
             else:
                 print('** no instance found **')
-                
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
