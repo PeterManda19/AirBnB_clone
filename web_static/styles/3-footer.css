@@ -1,14 +1,25 @@
 footer {
-	background-color: #00FF00;
+	background-color: #FFFFFF;
 	height: 60px;
 	width: 100%;
 	border-top: 1px solid #CCCCCC;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 }
+
+.footer-container {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 15px 0;
+	text-align: center;
+}
+
+.footer-container p {
+	margin: 0
+}	
 
 .best-school {
     display: flex;
